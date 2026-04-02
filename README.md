@@ -11,7 +11,5 @@
   <em>Simple Qt Calculator UI</em>
 </p>
 
-### Todo
-- Refactor module, scale app
 
 
