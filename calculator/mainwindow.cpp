@@ -47,7 +47,6 @@ void MainWindow::setupUI()
     EditCal->setReadOnly(true);
     EditCal->setFocus();
 
-    // Buttons
     btn0 = new QPushButton("0");
     btn1 = new QPushButton("1");
     btn2 = new QPushButton("2");
@@ -92,7 +91,6 @@ void MainWindow::setupUI()
     connect(deleteBtn, &QPushButton::clicked, this, &MainWindow::deleteCalculator);
     connect(delete1Btn, &QPushButton::clicked, this, &MainWindow::deleteOneChar);
 
-    // Style
     central->setStyleSheet(
         "QWidget { background-color: #121212; }"
         "QLineEdit { font-size:20px; padding:12px; background:#1e1e1e; color:#00ffcc; border-radius:10px; }"
@@ -109,7 +107,6 @@ void MainWindow::setupUI()
     deleteBtn->setObjectName("deleteBtn");
     delete1Btn->setObjectName("delete1Btn");
 
-    // Layout
     QVBoxLayout* displayLayout = new QVBoxLayout;
     displayLayout->addWidget(EditCal);
     displayLayout->addWidget(Result);
@@ -142,10 +139,22 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
     int key = event->key();
     QString text = event->text();
 
-    if (key == Qt::Key_Return || key == Qt::Key_Enter) { calculator(); return; }
-    if (key == Qt::Key_Backspace) { deleteOneChar(); return; }
+    if (key == Qt::Key_Return || key == Qt::Key_Enter) 
+    {
+        calculator(); 
+        return; 
+    }
+    if (key == Qt::Key_Backspace)
+    { 
+        deleteOneChar(); 
+        return; 
+    }
 
-    if (key >= Qt::Key_0 && key <= Qt::Key_9) { appendText(text); return; }
+    if (key >= Qt::Key_0 && key <= Qt::Key_9) 
+    { 
+        appendText(text); 
+        return; 
+    }
 
     if (text == "+" || text == "-" || text == "*" || text == "/")
     {
@@ -254,7 +263,6 @@ void MainWindow::calculator()
     {
         Result->setText(QString::number(v.top(), 'g', 10));
 
-        //animation
         QPropertyAnimation* anim = new QPropertyAnimation(Result, "geometry");
         QRect r = Result->geometry();
         anim->setDuration(150);
