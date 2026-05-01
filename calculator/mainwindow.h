@@ -9,7 +9,8 @@ class QLineEdit;
 class QKeyEvent;
 
 QT_BEGIN_NAMESPACE
-namespace Ui {
+namespace Ui 
+{
     class MainWindow;
 }
 QT_END_NAMESPACE
@@ -63,4 +64,4 @@ private slots:
     void appendText(QString val);
 };
 
-#endif // MAINWINDOW_H
+#endif
